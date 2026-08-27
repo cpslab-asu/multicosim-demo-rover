@@ -1,0 +1,45 @@
+[project]
+name = "multicosim-demo-rover"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.12"
+dependencies = [
+    "attrs>=26.1.0",
+    "multicosim",
+    "numpy>=2.5.0",
+    "roverctl",
+    "unique-namer>=1.6.0",
+]
+
+[tool.ruff]
+line-length = 100
+exclude = [
+    "packages/multicosim",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["roverctl"]
+
+[tool.pyrefly]
+python-version = "3.12"
+project-includes = ["src/rover/"]
+
+[tool.pixi.workspace]
+channels = ["conda-forge", "https://prefix.dev/robostack-lyrical"]
+platforms = ["osx-arm64", "linux-64"]
+
+[tool.pixi.dependencies]
+attrs = "*"
+numpy = "*"
+pyrefly = ">=1.2.0"
+ros-lyrical-ros-core = ">=0.13.0,<0.14"
+ros-lyrical-actuator-msgs = ">=0.0.1,<0.0.2"
+ros-lyrical-message-filters = ">=7.4.1,<8"
+ros-lyrical-ros-gz-interfaces = ">=3.0.9,<4"
+
+[tool.pixi.pypi-dependencies]
+multicosim = { path = "./packages/multicosim", editable = true }
+roverctl = { path = "./packages/roverctl", editable = true }
+types-docker = "*"
+
+[tool.pixi.tasks]

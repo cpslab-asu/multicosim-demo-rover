@@ -1,0 +1,33 @@
+# Gazebo pose topic
+- gz_topic_name: /model/ngc_rover/pose
+  ros_topic_name: /world/{{GAZEBO_WORLD}}/model/ngc_rover/pose
+  gz_type_name: gz.msgs.Pose
+  ros_type_name: geometry_msgs/msg/PoseStamped
+  direction: GZ_TO_ROS
+
+# Gazebo magnetometer topic
+- gz_topic_name: /model/ngc_rover/magnetometer
+  ros_topic_name: /world/{{GAZEBO_WORLD}}/model/ngc_rover/magnetometer
+  gz_type_name: gz.msgs.Magnetometer
+  ros_type_name: sensor_msgs/msg/MagneticField
+  direction: GZ_TO_ROS
+
+# Rover speed topic
+- gz_topic_name: /model/ngc_rover/command/motor_speed
+  ros_topic_name: /world/{{GAZEBO_WORLD}}/model/ngc_rover/command/motor_speed
+  gz_type_name: gz.msgs.Actuators
+  ros_type_name: actuator_msgs/msg/Actuators
+  direction: ROS_TO_GZ
+
+# Rover steering angle topic
+- gz_topic_name: /model/ngc_rover/servo_0
+  ros_topic_name: /world/{{GAZEBO_WORLD}}/model/ngc_rover/servo_0
+  gz_type_name: gz.msgs.Double
+  ros_type_name: std_msgs/msg/Float64
+  direction: ROS_TO_GZ
+
+# Gazebo control service
+- service_name: /world/{{GAZEBO_WORLD}}/control
+  ros_type_name: ros_gz_interfaces/srv/ControlWorld
+  gz_req_type_name: gz.msgs.WorldControl
+  gz_rep_type_name: gz.msgs.Boolean

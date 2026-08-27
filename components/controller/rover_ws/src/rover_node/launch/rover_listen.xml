@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8">
+<launch>
+  <node pkg="rover_node" exec="rover_controller:listen" name="rover" output="screen" emulate-tty="true">
+    <param name="world" value="$(env GAZEBO_WORLD)"/>
+  </node>
+</launch>

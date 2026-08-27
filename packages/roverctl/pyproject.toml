@@ -1,0 +1,17 @@
+[build-system]
+requires = ["uv_build>=0.12.6,<0.13"]
+build-backend = "uv_build"
+
+[project]
+name = "roverctl"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy",
+    "typing_extensions",
+]
+
+[tool.pyrefly]
+python-version = "3.12"
+project-includes = ["src/roverctl/"]
